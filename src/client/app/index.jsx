@@ -12,8 +12,6 @@ class App extends React.Component {
                 <Header />
                 <Main />
             </div>
-
-
         );
     }
 }
@@ -66,6 +64,14 @@ class Home extends React.Component {
         </div>)
     }
 }
+class About extends React.Component {
+    render() {
+        return (<div>
+            <h1>About</h1>
+            {this.props.children}
+        </div>)
+    }
+}
 class Bio extends React.Component {
     constructor(props) {
         super(props);
@@ -106,12 +112,5 @@ class Profile extends React.Component {
 
     }
 }
-class About extends React.Component {
-    render() {
-        return (<div>
-            <h1>About</h1>
-            {this.props.children}
-        </div>)
-    }
-}
+
 render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));
