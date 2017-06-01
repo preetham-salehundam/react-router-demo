@@ -8,11 +8,9 @@ class Main extends React.Component {
         return (<main>
             <Switch>
                 <Route exact path="/" component={Home} />
-                <About>
-                    <Route exact path="/about" render={()=><h1>No data to display</h1>} />
-                    <Route path="/about/:id" component={Bio} />
-                </About>
-
+                <Route exact path="/about" render={()=><h1>No data to display</h1>} />
+                <Route path="/about/:id" component={Bio} />
+                <Route render={()=><h1>Route not found!</h1>} />
             </Switch>
         </main>);
     }
