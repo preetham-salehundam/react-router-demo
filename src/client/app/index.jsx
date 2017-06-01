@@ -36,7 +36,8 @@ class Main extends React.Component {
             <Switch>
                 <Route exact path="/" component={Home} />
                 <About>
-                    <Route exact path="/about" component={Bio} />
+                    <Route exact path="/about" render={()=><h1>No data to display</h1>} />
+                    <Route path="/about/:id" component={Bio} />
                 </About>
 
             </Switch>
@@ -46,18 +47,18 @@ class Main extends React.Component {
 
 
 class Home extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={"persons":[]}
-        this.populatePersonList= this.populatePersonList.bind(this);
+        this.state = { "persons": [] }
+        this.populatePersonList = this.populatePersonList.bind(this);
     }
-    componentDidMount(){
-        fetch('stubs/persons.json').then((response)=>{
+    componentDidMount() {
+        fetch('stubs/persons.json').then((response) => {
             return response.json();
-        }).then((data)=>this.setState({"persons":data}));
+        }).then((data) => this.setState({ "persons": data }));
     }
-    populatePersonList(){
-        return this.state.persons.map((person)=><li key={person.id}><Link to={`/about/${person.id}`}>{person.name}</Link></li>)
+    populatePersonList() {
+        return this.state.persons.map((person) => <li key={person.id}><Link to={`/about/${person.id}`}>{person.name}</Link></li>)
     }
     render() {
         return (<div><h1>Home</h1>
@@ -65,40 +66,43 @@ class Home extends React.Component {
         </div>)
     }
 }
-class Bio extends React.Component{
-    constructor(props){
+class Bio extends React.Component {
+    constructor(props) {
         super(props);
-        this.state={"persons":[]}
+        this.state = { "persons": [] }
         this.findPersonById = this.findPersonById.bind(this);
         this.personId = this.props.match.params.id;
     }
-     componentDidMount(){
-        fetch('/stubs/persons.json').then((response)=>{
+    componentDidMount() {
+        fetch('/stubs/persons.json').then((response) => {
             return response.json();
-        }).then((data)=>this.setState({"persons":data}));
+        }).then((data) => this.setState({ "persons": data }));
     }
-    findPersonById(id){
-        console.log(this.state.persons);
-        let person=this.state.persons.filter((person)=>person.id==id);
-        console.log(person);
-        return <Profile {...person} />
+    findPersonById(id) {
+
+        let person = this.state.persons.filter((person) => person.id == id);
+
+        return <Profile {...person[0]} />
     }
-    render(){
-        console.log(this.props.match.params);
-        console.log(this.findPersonById(this.personId))
+    render() {
+
         return <div>{this.findPersonById(this.personId)}</div>
     }
 }
 class Profile extends React.Component {
+    constructor(props) {
+        super(props);
+
+    }
     render() {
         return <div><h3>Profile</h3>
             <ul>
-            <li>Name:{this.props.name}</li>
-            <li>Age: {this.props.Age}</li>
-            <li>Company: {this.props.Company}</li>
-            <li>Job: {this.props.Job}</li>
-            <li>Location: {this.props.Location}</li>
-            <li>Phone number: {this.props.PhoneNumber}</li></ul></div>
+                <li>Name:{this.props.name}</li>
+                <li>Age: {this.props.Age}</li>
+                <li>Company: {this.props.Company}</li>
+                <li>Job: {this.props.Job}</li>
+                <li>Location: {this.props.Location}</li>
+                <li>Phone number: {this.props.PhoneNumber}</li></ul></div>
 
     }
 }
@@ -106,9 +110,6 @@ class About extends React.Component {
     render() {
         return (<div>
             <h1>About</h1>
-            <Switch>
-                <Route path="/about/:id" component={Bio}></Route>
-            </Switch>
             {this.props.children}
         </div>)
     }
