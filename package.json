@@ -4,18 +4,20 @@
   "description": "this is react routing demo with version v4",
   "main": "index.js",
   "scripts": {
-   		"test": "echo \"Error: no test specified\" && exit 1",
-      "start": "npm run build",
-      "build": "webpack -d && webpack-dev-server --content-base src/ --inline --hot --port 9000 --history-api-fallback"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build",
+    "build": "webpack -d && webpack-dev-server --content-base src/ --inline --hot --port 9000 --history-api-fallback"
   },
-  "author": "",
+  "author": "Preetham <preetham_2971993@yahoo.co.in>",
   "license": "ISC",
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-router-dom": "^4.1.1"
+    "react-redux": "^5.0.5",
+    "react-router-dom": "^4.1.1",
+    "redux": "^3.6.0"
   },
-  "devDependencies":{
+  "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-core": "^6.16.0",
     "babel-loader": "^6.2.5",
@@ -23,5 +25,6 @@
     "babel-preset-react": "^6.16.0",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1"
-  }
+  },
+  "repository": "https://github.com/preethampatnaik/react-router-demo.git"
 }
