@@ -1,0 +1,41 @@
+[{
+"id":1,
+"name":"Preetham",
+"Age": 26,
+"Company": "Capgemini",
+"Job": "Developer",
+"Location": "Chennai",
+"PhoneNumber": 918828221993
+},{
+"id":2,
+"name":"Raja",
+"Age": 26,
+"Company": "GE",
+"Job": "Architect",
+"Location": "Chennai",
+"PhoneNumber": 918828221993
+},{
+"id":3,
+"name":"Rajesh",
+"Age": 28,
+"Company": "Capgemini",
+"Job": "Developer",
+"Location": "Hyderabad",
+"PhoneNumber": 918828221993
+},{
+"id":4,
+"name":"Dhananjaya",
+"Age": 32,
+"Company": "Capgemini",
+"Job": "Senior Developer",
+"Location": "Hyderabad",
+"PhoneNumber": 918828221993
+},{
+"id":5,
+"name":"Ravi",
+"Age": 30,
+"Company": "Capgemini",
+"Job": "Manager",
+"Location": "Bangalore",
+"PhoneNumber": 918828221993
+}]
