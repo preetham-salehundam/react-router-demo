@@ -9,7 +9,7 @@ export const initialState = {
 export const rootReducer = (state = initialState,action) => {
     switch(action.type){
         case types.FETCH_TODOS:
-            return { ...state, persons : action.payload}
+            return Object.assign({},state,{ "persons" : action.payload })
         default:
             return state;
     }
